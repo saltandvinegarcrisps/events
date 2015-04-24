@@ -2,7 +2,6 @@
 
 Example class that will also act as the event, would could create a separate event class to pass into the dispatch method.
 
-	```
 	class Blog extends Events\Event {
 
 		protected $events;
@@ -20,11 +19,9 @@ Example class that will also act as the event, would could create a separate eve
 		}
 
 	}
-	```
 
 Some plugin that will listen to some events.
 
-	```
 	class SiteMapPlugin {
 
 		protected $document;
@@ -40,28 +37,24 @@ Some plugin that will listen to some events.
 		}
 
 	}
-	```
 
 Putting it together
 
-	```
 	$manager = new Events\EventManager();
 
 	$sitemap = new SiteMapPlugin($manager);
 
 	$blog = new Blog($manager);
 	$blog->update();
-	```
 
-its the same as:
+same as:
 
 	$sitemap->generate($blog);
 
-except its called with the blog is updated.
+except its called when the blog is updated.
 
 We could also do it another way, removing the injection of the event manager:
 
-	```
 	class SiteMapPlugin {
 		...
 		public function __construct(Docucment $document) {
@@ -69,14 +62,11 @@ We could also do it another way, removing the injection of the event manager:
 		}
 		...
 	}
-	```
 
 So we are left with:
 
-	```
 	$manager = new Events\EventManager();
 	$manager->listen('blog.update', [new SiteMapPlugin, 'generate']);
 
 	$blog = new Blog($manager);
 	$blog->update();
-	```
