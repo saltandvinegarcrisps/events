@@ -2,30 +2,23 @@
 
 namespace Events;
 
-class EventManager implements \Countable {
+class EventManager implements EventManagerInterface {
 
-	protected $stack;
+	protected $listeners = [];
 
-	public function listen($event, $callback) {
-		$this->stack[$event][] = $callback;
-	}
-
-	public function dispatch($event, Event $param = null) {
-		$param = null === $param ? new GenericEvent : $param;
-
-		foreach($this->stack[$event] as $listener) {
-			call_user_func($listener, $param);
-		}
-	}
-
-	public function count() {
-		$count = 0;
-
-		foreach($this->stack as $events) {
-			$count += count($events);
+	public function listen($event, callable $callable, $priority = 0) {
+		// check if event queue has been created
+		if(false === array_key_exists($event, $this->listeners)) {
+			$this->listeners[$event] = new \SplPriorityQueue;
 		}
 
-		return $count;
+		$this->listeners[$event]->insert($callable, $priority);
+	}
+
+	public function trigger($event, ...$args) {
+		foreach($this->listeners[$event] as $listener) {
+			call_user_func($listener, $args);
+		}
 	}
 
 }
