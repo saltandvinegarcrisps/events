@@ -15,9 +15,11 @@ class EventManager implements EventManagerInterface {
 		$this->listeners[$event]->insert($callable, $priority);
 	}
 
-	public function trigger($event, ...$args) {
+	public function trigger($event) {
+		$args = array_slice(func_get_args(), 1);
+
 		foreach($this->listeners[$event] as $listener) {
-			call_user_func($listener, $args);
+			call_user_func_array($listener, $args);
 		}
 	}
 
