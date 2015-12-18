@@ -6,7 +6,7 @@ class EventManager implements EventManagerInterface {
 
 	protected $listeners = [];
 
-	public function listen($event, callable $callable, $priority = 0) {
+	public function listen($event, $callable, $priority = 0) {
 		// check if event queue has been created
 		if(false === array_key_exists($event, $this->listeners)) {
 			$this->listeners[$event] = new \SplPriorityQueue;
@@ -16,6 +16,11 @@ class EventManager implements EventManagerInterface {
 	}
 
 	public function trigger($event) {
+		// is there anyone listening?
+		if(false === array_key_exists($event, $this->listeners)) {
+			return;
+		}
+
 		$args = array_slice(func_get_args(), 1);
 
 		foreach($this->listeners[$event] as $listener) {
