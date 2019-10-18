@@ -3,3 +3,9 @@ stop_on_failure: true
 code_generation: false
 extensions:
   FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension: ~
+    format:
+      - html
+      - clover
+    output:
+      html: coverage
+      clover: coverage.xml
