@@ -1,27 +1,41 @@
 {
-	"name": "rwarasaurus/events",
-	"description": "Events manager",
-	"license": "GPL-3.0",
-	"version": "0.0.1",
-	"type": "library",
-	"authors": [
-		{
-			"name": "Kieron",
-			"email": "hello@madebykieron.co.uk",
-			"homepage": "http://madebykieron.co.uk",
-			"role": "Developer"
-		}
-	],
-	"require": {
-		"php": ">=5.5"
-	},
-	"require-dev": {
-		"phpspec/phpspec": "~2.0"
-	},
-	"autoload": {
-		"psr-4": {
-			"": "src"
-		}
-	},
-	"minimum-stability": "dev"
+    "name": "rwarasaurus/events",
+    "description": "PSR-14 Event dispatcher",
+    "license": "GPL-3.0",
+    "version": "0.1.0",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kieron",
+            "email": "hello@madebykieron.co.uk",
+            "homepage": "http://madebykieron.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "psr/event-dispatcher": "@stable"
+    },
+    "require-dev": {
+        "symplify/easy-coding-standard": "@stable",
+        "nunomaduro/phpinsights": "@stable",
+        "phpspec/phpspec": "@stable",
+        "phpstan/phpstan": "@stable",
+        "friends-of-phpspec/phpspec-code-coverage": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "Events\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Events\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "bin-dir": "bin"
+    }
 }

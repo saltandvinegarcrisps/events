@@ -1,0 +1,120 @@
+services:
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\LanguageConstructSpacingSniff: ~
+  PHP_CodeSniffer\Standards\Squiz\Sniffs\WhiteSpace\SuperfluousWhitespaceSniff:
+    ignoreBlankLines: false
+  PhpCsFixer\Fixer\Alias\RandomApiMigrationFixer:
+    mt_rand: random_int
+    rand: random_int
+  PhpCsFixer\Fixer\ArrayNotation\ArraySyntaxFixer:
+    syntax: short
+  PhpCsFixer\Fixer\ArrayNotation\NoTrailingCommaInSinglelineArrayFixer: ~
+  PhpCsFixer\Fixer\ArrayNotation\NoWhitespaceBeforeCommaInArrayFixer: ~
+  PhpCsFixer\Fixer\ArrayNotation\TrailingCommaInMultilineArrayFixer: ~
+  PhpCsFixer\Fixer\ArrayNotation\TrimArraySpacesFixer: ~
+  PhpCsFixer\Fixer\ArrayNotation\WhitespaceAfterCommaInArrayFixer: ~
+  PhpCsFixer\Fixer\Basic\BracesFixer:
+    allow_single_line_closure: false
+    position_after_anonymous_constructs: same
+    position_after_control_structures: same
+    position_after_functions_and_oop_constructs: next
+  PhpCsFixer\Fixer\Basic\EncodingFixer: ~
+  PhpCsFixer\Fixer\Basic\Psr4Fixer: ~
+  PhpCsFixer\Fixer\Casing\LowercaseConstantsFixer: ~
+  PhpCsFixer\Fixer\Casing\LowercaseKeywordsFixer: ~
+  PhpCsFixer\Fixer\Casing\MagicConstantCasingFixer: ~
+  PhpCsFixer\Fixer\CastNotation\CastSpacesFixer: ~
+  PhpCsFixer\Fixer\CastNotation\LowercaseCastFixer: ~
+  PhpCsFixer\Fixer\CastNotation\ShortScalarCastFixer: ~
+  PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer:
+    elements:
+      - const
+      - property
+      - method
+  PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer: ~
+  PhpCsFixer\Fixer\ClassNotation\NoBlankLinesAfterClassOpeningFixer: ~
+  PhpCsFixer\Fixer\ClassNotation\ProtectedToPrivateFixer: ~
+  PhpCsFixer\Fixer\ClassNotation\SingleClassElementPerStatementFixer:
+    elements:
+      - property
+  PhpCsFixer\Fixer\ClassNotation\VisibilityRequiredFixer:
+    elements:
+      - const
+      - method
+      - property
+  PhpCsFixer\Fixer\Comment\NoTrailingWhitespaceInCommentFixer: ~
+  PhpCsFixer\Fixer\ControlStructure\ElseifFixer: ~
+  PhpCsFixer\Fixer\ControlStructure\NoBreakCommentFixer: ~
+  PhpCsFixer\Fixer\ControlStructure\NoUnneededControlParenthesesFixer: ~
+  PhpCsFixer\Fixer\ControlStructure\NoUnneededCurlyBracesFixer: ~
+  PhpCsFixer\Fixer\ControlStructure\NoUselessElseFixer: ~
+  PhpCsFixer\Fixer\ControlStructure\SwitchCaseSemicolonToColonFixer: ~
+  PhpCsFixer\Fixer\ControlStructure\SwitchCaseSpaceFixer: ~
+  PhpCsFixer\Fixer\FunctionNotation\FunctionDeclarationFixer: ~
+  PhpCsFixer\Fixer\FunctionNotation\FunctionTypehintSpaceFixer: ~
+  PhpCsFixer\Fixer\FunctionNotation\MethodArgumentSpaceFixer:
+    ensure_fully_multiline: true
+  PhpCsFixer\Fixer\FunctionNotation\NoSpacesAfterFunctionNameFixer: ~
+  PhpCsFixer\Fixer\FunctionNotation\ReturnTypeDeclarationFixer: ~
+  PhpCsFixer\Fixer\FunctionNotation\VoidReturnFixer: ~
+  PhpCsFixer\Fixer\Import\NoLeadingImportSlashFixer: ~
+  PhpCsFixer\Fixer\Import\NoUnusedImportsFixer: ~
+  PhpCsFixer\Fixer\Import\OrderedImportsFixer:
+    importsOrder:
+      - class
+      - const
+      - function
+  PhpCsFixer\Fixer\Import\SingleLineAfterImportsFixer: ~
+  PhpCsFixer\Fixer\LanguageConstruct\DeclareEqualNormalizeFixer:
+    space: none
+  PhpCsFixer\Fixer\LanguageConstruct\ExplicitIndirectVariableFixer: ~
+  PhpCsFixer\Fixer\LanguageConstruct\FunctionToConstantFixer: ~
+  PhpCsFixer\Fixer\ListNotation\ListSyntaxFixer:
+    syntax: short
+  PhpCsFixer\Fixer\NamespaceNotation\BlankLineAfterNamespaceFixer: ~
+  PhpCsFixer\Fixer\NamespaceNotation\NoLeadingNamespaceWhitespaceFixer: ~
+  PhpCsFixer\Fixer\NamespaceNotation\SingleBlankLineBeforeNamespaceFixer: ~
+  PhpCsFixer\Fixer\Operator\BinaryOperatorSpacesFixer: ~
+  PhpCsFixer\Fixer\Operator\ConcatSpaceFixer:
+    spacing: 'one'
+  PhpCsFixer\Fixer\Operator\NewWithBracesFixer: ~
+  PhpCsFixer\Fixer\Operator\TernaryOperatorSpacesFixer: ~
+  PhpCsFixer\Fixer\Operator\TernaryToNullCoalescingFixer: ~
+  PhpCsFixer\Fixer\Operator\UnaryOperatorSpacesFixer: ~
+  PhpCsFixer\Fixer\PhpTag\BlankLineAfterOpeningTagFixer: ~
+  PhpCsFixer\Fixer\PhpTag\FullOpeningTagFixer: ~
+  PhpCsFixer\Fixer\PhpTag\NoClosingTagFixer: ~
+  PhpCsFixer\Fixer\Phpdoc\PhpdocSingleLineVarSpacingFixer: ~
+  PhpCsFixer\Fixer\ReturnNotation\ReturnAssignmentFixer: ~
+  PhpCsFixer\Fixer\Semicolon\NoEmptyStatementFixer: ~
+  PhpCsFixer\Fixer\Semicolon\NoSinglelineWhitespaceBeforeSemicolonsFixer: ~
+  PhpCsFixer\Fixer\Semicolon\SpaceAfterSemicolonFixer: ~
+  PhpCsFixer\Fixer\StringNotation\ExplicitStringVariableFixer: ~
+  PhpCsFixer\Fixer\StringNotation\SingleQuoteFixer: ~
+  PhpCsFixer\Fixer\Whitespace\ArrayIndentationFixer: ~
+  PhpCsFixer\Fixer\Whitespace\CompactNullableTypehintFixer: ~
+  PhpCsFixer\Fixer\Whitespace\IndentationTypeFixer: ~
+  PhpCsFixer\Fixer\Whitespace\LineEndingFixer: ~
+  PhpCsFixer\Fixer\Whitespace\MethodChainingIndentationFixer: ~
+  PhpCsFixer\Fixer\Whitespace\NoSpacesAroundOffsetFixer: ~
+  PhpCsFixer\Fixer\Whitespace\NoSpacesInsideParenthesisFixer: ~
+  PhpCsFixer\Fixer\Whitespace\NoTrailingWhitespaceFixer: ~
+  PhpCsFixer\Fixer\Whitespace\NoWhitespaceInBlankLineFixer: ~
+  PhpCsFixer\Fixer\Whitespace\SingleBlankLineAtEofFixer: ~
+  SlevomatCodingStandard\Sniffs\Classes\ModernClassNameReferenceSniff: ~
+  SlevomatCodingStandard\Sniffs\Classes\TraitUseSpacingSniff:
+    linesCountAfterLastUse: 1
+    linesCountAfterLastUseWhenLastInClass: 0
+    linesCountBeforeFirstUse: 0
+    linesCountBetweenUses: 0
+  SlevomatCodingStandard\Sniffs\Classes\UnusedPrivateElementsSniff: ~
+  SlevomatCodingStandard\Sniffs\ControlStructures\RequireShortTernaryOperatorSniff: ~
+  SlevomatCodingStandard\Sniffs\Exceptions\ReferenceThrowableOnlySniff: ~
+  SlevomatCodingStandard\Sniffs\Functions\UnusedInheritedVariablePassedToClosureSniff: ~
+  SlevomatCodingStandard\Sniffs\Namespaces\UselessAliasSniff: ~
+  SlevomatCodingStandard\Sniffs\Operators\RequireCombinedAssignmentOperatorSniff: ~
+  SlevomatCodingStandard\Sniffs\PHP\UselessParenthesesSniff: ~
+  SlevomatCodingStandard\Sniffs\PHP\UselessSemicolonSniff: ~
+  SlevomatCodingStandard\Sniffs\TypeHints\NullableTypeForNullDefaultValueSniff: ~
+  SlevomatCodingStandard\Sniffs\Variables\UnusedVariableSniff: ~
+  SlevomatCodingStandard\Sniffs\Variables\UselessVariableSniff: ~
+  Symplify\CodingStandard\Fixer\Strict\BlankLineAfterStrictTypesFixer: ~

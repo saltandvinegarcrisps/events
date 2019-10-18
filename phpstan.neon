@@ -1,0 +1,6 @@
+parameters:
+    level: max
+    paths:
+        - %currentWorkingDirectory%/src
+    bootstrap: %currentWorkingDirectory%/vendor/autoload.php
+    inferPrivatePropertyTypeFromConstructor: true
