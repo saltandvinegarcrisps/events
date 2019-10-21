@@ -14,7 +14,8 @@
     ],
     "require": {
         "php": ">=7.2",
-        "psr/event-dispatcher": "@stable"
+        "psr/event-dispatcher": "@stable",
+        "psr/log": "@stable"
     },
     "require-dev": {
         "symplify/easy-coding-standard": "@stable",
