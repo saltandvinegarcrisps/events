@@ -38,5 +38,20 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "bin-dir": "bin"
+    },
+    "scripts": {
+        "psr": [
+            "bin/ecs check src --fix",
+            "bin/ecs check spec --fix"
+        ],
+        "tests": [
+            "./bin/phpspec run --no-code-generation --format=pretty",
+            "./bin/phpstan analyse --no-progress -n"
+        ],
+        "uninstall": [
+            "rm -rf ./bin",
+            "rm -rf ./vendor",
+            "rm ./composer.lock"
+        ]
     }
 }
