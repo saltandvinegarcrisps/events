@@ -6,6 +6,7 @@ namespace Events;
 
 use AppendIterator;
 use ArrayIterator;
+use Iterator;
 use Psr\EventDispatcher\{
     EventDispatcherInterface,
     ListenerProviderInterface,
@@ -15,10 +16,13 @@ use Psr\EventDispatcher\{
 class EventDispatcher implements EventDispatcherInterface
 {
     /**
-     * @var ArrayIterator
+     * @var ArrayIterator<int, ListenerProviderInterface>
      */
     protected $listeners;
 
+    /**
+     * @param null|ArrayIterator<int, ListenerProviderInterface> $listeners
+     */
     public function __construct(?ArrayIterator $listeners = null)
     {
         $this->listeners = null === $listeners ? new ArrayIterator() : $listeners;
@@ -61,7 +65,9 @@ class EventDispatcher implements EventDispatcherInterface
                 $iterable = new ArrayIterator($iterable);
             }
 
-            $appendIterator->append($iterable);
+            if ($iterable instanceof Iterator) {
+                $appendIterator->append($iterable);
+            }
         }
 
         return $appendIterator;
@@ -69,9 +75,9 @@ class EventDispatcher implements EventDispatcherInterface
 
     /**
      * @inherit
-     * @credit https://github.com/phly/phly-event-dispatcher
+     * @see https://github.com/phly/phly-event-dispatcher
      */
-    public function dispatch(object $event)
+    public function dispatch(object $event): object
     {
         $stoppable = $event instanceof StoppableEventInterface;
 

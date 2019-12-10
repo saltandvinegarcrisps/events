@@ -4,3 +4,6 @@ parameters:
         - %currentWorkingDirectory%/src
     bootstrap: %currentWorkingDirectory%/vendor/autoload.php
     inferPrivatePropertyTypeFromConstructor: true
+    checkGenericClassInNonGenericObjectType: false
+    ignoreErrors:
+        - '#undefined method object::isPropagationStopped#'

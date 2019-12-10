@@ -28,7 +28,7 @@ class TraceableEventDispatcher implements EventDispatcherInterface
     /**
      * @inherit
      */
-    public function dispatch(object $event)
+    public function dispatch(object $event): object
     {
         $start = microtime(true);
         $eventName = get_class($event);
