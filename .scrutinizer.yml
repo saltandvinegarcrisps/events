@@ -6,7 +6,8 @@ build:
       tests:
         override:
           - php-scrutinizer-run
-          - phpcs-run
+          - command: phpcs-run
+            use_website_config: true
           - command: bin/phpspec run --config=phpspec.yml
             coverage:
               file: coverage.xml
