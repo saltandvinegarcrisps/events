@@ -1,0 +1,19 @@
+build:
+  environment:
+    php: 7.3
+  nodes:
+    tests: true
+    analysis:
+      tests:
+        override:
+          - php-scrutinizer-run
+          - phpcs-run
+          - command: bin/phpspec run --config=phpspec.yml
+            coverage:
+              file: coverage.xml
+              format: clover
+checks:
+  php: true
+coding_style:
+  php: {}
+filter: {}
