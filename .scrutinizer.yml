@@ -2,11 +2,7 @@ build:
   environment:
     php: 7.3
   nodes:
-    tests: true
     analysis:
-      project_setup:
-        override:
-          - 'true'
       tests:
         override:
           - php-scrutinizer-run
@@ -15,8 +11,3 @@ build:
             coverage:
               file: coverage.xml
               format: clover
-checks:
-  php: true
-coding_style:
-  php: {}
-filter: {}
