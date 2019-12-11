@@ -1,20 +1,11 @@
 build:
   environment:
     php: 7.3
-  nodes:
-    tests: true
-    analysis:
-      cache:
-        directories:
-          - vendor/
-      tests:
-        override:
-          - command: bin/phpspec run --config=phpspec.yml
-            coverage:
-              file: coverage.xml
-              format: clover
-          - php-scrutinizer-run
-          - command: phpcs-run
-            use_website_config: true
-checks:
-    php: true
+  commands:
+    - command: ./bin/phpspec run --config=phpspec.yml
+      coverage:
+        file: coverage.xml
+        format: clover
+    - php-scrutinizer-run
+    - command: phpcs-run
+      use_website_config: true
