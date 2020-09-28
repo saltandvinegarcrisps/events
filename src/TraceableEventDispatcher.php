@@ -38,7 +38,7 @@ class TraceableEventDispatcher implements EventDispatcherInterface
     public function dispatch(object $event): object
     {
         $eventName = get_class($event);
-        $this->logger->info('dispatch event', ['event' => $eventName]);
+        $this->logger->info(sprintf('Event dispatch: %s', $eventName), ['event' => $eventName]);
         $start = microtime(true);
         $result = $this->eventDispatcher->dispatch($event);
         $duration = microtime(true) - $start;
