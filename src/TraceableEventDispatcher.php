@@ -64,4 +64,12 @@ class TraceableEventDispatcher implements EventDispatcherInterface
     {
         return $this->dispatchedEvents;
     }
+
+    /**
+     * Reset log of Events that have been called
+     */
+    public function resetDispatchedEvents(): void
+    {
+        $this->dispatchedEvents = [];
+    }
 }
