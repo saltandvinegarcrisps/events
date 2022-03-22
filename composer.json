@@ -1,8 +1,7 @@
 {
     "name": "rwarasaurus/events",
     "description": "PSR-14 Event dispatcher",
-    "license": "GPL-3.0",
-    "version": "0.1.0",
+    "license": "MIT",
     "type": "library",
     "authors": [
         {
@@ -18,11 +17,10 @@
         "psr/log": "@stable"
     },
     "require-dev": {
-        "symplify/easy-coding-standard": "@stable",
-        "nunomaduro/phpinsights": "@stable",
+        "friendsofphp/php-cs-fixer": "@stable",
+        "friends-of-phpspec/phpspec-code-coverage": "@stable",
         "phpspec/phpspec": "@stable",
-        "phpstan/phpstan": "@stable",
-        "friends-of-phpspec/phpspec-code-coverage": "@stable"
+        "phpstan/phpstan": "@stable"
     },
     "autoload": {
         "psr-4": {
@@ -41,12 +39,11 @@
     },
     "scripts": {
         "psr": [
-            "bin/ecs check src --fix",
-            "bin/ecs check spec --fix"
+            "./bin/php-cs-fixer fix . --allow-risky=yes --rules=@PSR2,no_unused_imports,ordered_imports,ordered_interfaces,single_quote,trailing_comma_in_multiline"
         ],
-        "tests": [
-            "./bin/phpspec run --no-code-generation --format=pretty",
-            "./bin/phpstan analyse --no-progress -n"
+        "test": [
+            "phpstan analyse --no-progress --no-ansi --configuration=phpstan.neon",
+            "phpspec run --no-coverage --no-ansi --no-interaction --format=dot"
         ],
         "uninstall": [
             "rm -rf ./bin",

@@ -1,9 +1,8 @@
 parameters:
     level: max
+    bootstrapFiles:
+        - %currentWorkingDirectory%/vendor/autoload.php
     paths:
         - %currentWorkingDirectory%/src
-    bootstrap: %currentWorkingDirectory%/vendor/autoload.php
-    inferPrivatePropertyTypeFromConstructor: true
-    checkGenericClassInNonGenericObjectType: false
-    ignoreErrors:
-        - '#undefined method object::isPropagationStopped#'
+    tmpDir: tmp
+    checkMissingIterableValueType: false

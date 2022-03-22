@@ -54,6 +54,9 @@ class TraceableEventDispatcher implements EventDispatcherInterface
      */
     public function registerListener(ListenerProviderInterface $listener): void
     {
+        if (!method_exists($this->eventDispatcher, 'registerListener')) {
+            return;
+        }
         $this->eventDispatcher->registerListener($listener);
     }
 

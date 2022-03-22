@@ -7,11 +7,9 @@ namespace Events;
 use AppendIterator;
 use ArrayIterator;
 use Iterator;
-use Psr\EventDispatcher\{
-    EventDispatcherInterface,
-    ListenerProviderInterface,
-    StoppableEventInterface
-};
+use Psr\EventDispatcher\EventDispatcherInterface;
+use Psr\EventDispatcher\ListenerProviderInterface;
+use Psr\EventDispatcher\StoppableEventInterface;
 
 class EventDispatcher implements EventDispatcherInterface
 {
@@ -86,8 +84,11 @@ class EventDispatcher implements EventDispatcherInterface
         }
 
         foreach ($this->getListenersForEvent($event) as $callable) {
+            if (!is_callable($callable)) {
+                continue;
+            }
             $callable($event);
-            if ($stoppable && $event->isPropagationStopped()) {
+            if ($stoppable && method_exists($event, 'isPropagationStopped') && $event->isPropagationStopped()) {
                 break;
             }
         }
